@@ -1,0 +1,4 @@
+#!/bin/execlineb -P
+# test that empty blocks are okay,
+# and no subsequent arguments mean exit 0
+./exportall { }

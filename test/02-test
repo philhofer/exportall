@@ -1,0 +1,13 @@
+#!/bin/execlineb -P
+exec -c
+./exportall {
+        CFLAGS "-O2 -pipe -fPIE"
+        LDFLAGS "-static-pie"
+}
+multisubstitute {
+        importas -i -u cflags CFLAGS
+        importas -i -u ldflags LDFLAGS
+}
+if { test $cflags = "-O2 -pipe -fPIE" }
+test $ldflags = "-static-pie"
+

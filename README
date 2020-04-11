@@ -1,0 +1,28 @@
+-- exportall
+
+exportall(1) is a tool for the execline scripting language
+that exports a block into the environment and then
+execs into the rest of its command line
+
+-- usage:
+
+exportall { key value ... } prog ...
+
+The block argument to exportall must be
+an even number of words corresponding
+to environment variable names and their values.
+(Note that setenv(3) prohibits "=" in environment
+variable names.)
+
+The following script clears the environment
+(except for PATH) and then sets HOME and LC_ALL
+and execs into /bin/sh:
+
+#!/bin/execlineb -P
+exec
+exportall {
+        HOME /home/yourself
+        LC_ALL C.UTF-8
+}
+/bin/sh
+

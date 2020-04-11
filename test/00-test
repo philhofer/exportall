@@ -1,0 +1,8 @@
+#!/bin/execlineb -P
+exec -c
+./exportall {
+        foo foo
+}
+importas -i -u foo foo
+test $foo = "foo"
+
